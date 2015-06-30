@@ -42,7 +42,7 @@ Router.route('/user/:_id', {
   onBeforeAction: function () {this.next();},
 
   data: function(){
-    return Meteor.users.findOne({_id: Meteor.userId()});
+    return Meteor.users.findOne({_id: this.params._id});
   },
 
   action: function(){
