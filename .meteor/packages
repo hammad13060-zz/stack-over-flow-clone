@@ -6,8 +6,8 @@
 
 meteor-platform
 autopublish
-insecure
 iron:router
 twbs:bootstrap
 aldeed:collection2
 useraccounts:bootstrap
+accounts-password

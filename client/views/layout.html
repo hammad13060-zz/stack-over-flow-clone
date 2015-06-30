@@ -1,0 +1,12 @@
+<template name='layout'>
+    <header class='navbar navbar-default'>
+        <h1 id='logo'>Stackoverflow</h1>
+        <nav class='navbar navbar-right'>
+          <ul class="nav nav-pills">
+            <li class="{{activeTab 'signUp'}}"><a href="/register">sign up</a></li>
+            <li class="{{activeTab 'signIn'}}"><a href='/login'>log in</a></li>
+          </ul>
+        </nav>
+    </header>
+    {{> yield}}
+</template>

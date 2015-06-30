@@ -1,0 +1,16 @@
+.container{
+  margin-top: 100px;
+}
+
+#logo{
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px 20px;
+  font-size: 27px;
+  color: #707070;
+}
+
+header nav {
+  margin: 0px 20px;
+}
