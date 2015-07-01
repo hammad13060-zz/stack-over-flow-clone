@@ -88,6 +88,8 @@ Questions.attachSchema(new SimpleSchema({
       if (this.isUpdate) {
         return new Date();
       }
-    }
+    },
+    denyInsert: true,
+    optional: true
   }
 }));

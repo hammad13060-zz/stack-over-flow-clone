@@ -6,8 +6,23 @@ Router.configure({
 
 //root route
 //will display all the question (log in not required)
-Router.route('/', function(){
-  this.render('questions');
+Router.route('/', {
+
+  name: 'show.questions',
+  template: 'questions',
+
+  subscriptions: function(){
+    return Meteor.subscribe('allQuestions');
+  },
+
+  action: function(){
+    if (this.ready()) {
+      this.render('questions');
+    } else {
+      this.render('loading');
+    }
+  }
+
 });
 
 
@@ -66,7 +81,18 @@ Router.route('/question/:_questionId', {
   name: 'show.question',
   path: '/question/:_questionId',
   template: 'question',
+  subscriptions: function(){
+    return Meteor.subscribe('question', this.params._questionId);
+  },
   data: function(){
     return Questions.findOne({_id: this.params._questionId});
+  },
+
+  action: function(){
+    if (this.ready()) {
+      this.render('question');
+    } else {
+      this.render('loading');
+    }
   }
 });

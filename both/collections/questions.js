@@ -16,7 +16,8 @@ Meteor.methods({
       title: title,
       question: question,
       answers: [],
-      userId: this.userId
+      userId: this.userId,
+      username: Meteor.user().username
     }
 
     var questionId = Questions.insert(data);
