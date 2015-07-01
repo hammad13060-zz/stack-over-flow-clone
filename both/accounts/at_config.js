@@ -60,6 +60,7 @@ AccountsTemplates.addFields([
       required: true,
       minLength: 5,
 
+      //validation function to prevent duplicacy
       func: function(value){
         if (Meteor.isClient) {
             console.log("Validating username...");
@@ -85,6 +86,7 @@ AccountsTemplates.addFields([
       re: /.+@(.+){2,}\.(.+){2,}/,
       errStr: 'Invalid email',
 
+      //validation function. prevent duplicacy
       func: function(value){
         if (Meteor.isClient) {
             console.log("Validating email...");
@@ -104,9 +106,10 @@ AccountsTemplates.addFields([
   },
   {
       _id: 'username_and_email',
+      placeholder: 'email/username',
+      displaysplayName: "login",
       type: 'text',
       required: true,
-      displaysplayName: "Login",
   },
   pwd
 ]);
