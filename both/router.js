@@ -1,3 +1,4 @@
+//router default configs
 Router.configure({
   layoutTemplate: 'layout'
 });
@@ -14,18 +15,18 @@ Router.route('/', function(){
 AccountsTemplates.configureRoute('signIn', {
     name: 'signin',
     path: '/login',
-    template: 'accounts-form',
+    template: 'accounts_form',
     redirect: function(){
       console.log(Meteor.userId());
       Router.go('/user/' + Meteor.userId());
     }
 });
 
-
+//setting up routing information for signUp template
 AccountsTemplates.configureRoute('signUp', {
     name: 'signup',
     path: '/register',
-    template: 'accounts-form',
+    template: 'accounts_form',
     redirect: function(){
       console.log(Meteor.userId());
       Router.go('/user/' + Meteor.userId());
@@ -34,15 +35,17 @@ AccountsTemplates.configureRoute('signUp', {
 
 
 //setting up a user resource route
+//for paths like domain.com/user/123xsjds4
 Router.route('/user/:_id', {
 
   name: 'user.show',
   path: '/user/:_id',
 
-  onBeforeAction: function () {this.next();},
-
+  //context data containing user public info
   data: function(){
-    return Meteor.users.findOne({_id: this.params._id});
+    var data = Meteor.users.findOne({_id: this.params._id});
+    console.log(data);
+    return data;
   },
 
   action: function(){
@@ -50,3 +53,20 @@ Router.route('/user/:_id', {
   }
 });
 
+//route for ask question page
+Router.route('/ask', {
+  name: 'ask.question',
+  path: '/ask',
+  template: 'question_form'
+});
+
+//setting up route for a question resource
+//for paths like domain.com/question/123ashdaj
+Router.route('/question/:_questionId', {
+  name: 'show.question',
+  path: '/question/:_questionId',
+  template: 'question',
+  data: function(){
+    return Questions.findOne({_id: this.params._questionId});
+  }
+});
