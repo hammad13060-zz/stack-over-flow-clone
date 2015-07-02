@@ -1,6 +1,7 @@
 <template name='questions'>
-  <h1>Questions</h1>
-  {{#each allQuestions}}
-    <p>{{title}}</p>
-  {{/each}}
+  <div class='bucket'>
+    {{#each allQuestions}}
+      {{> questions_title}}
+    {{/each}}
+  </div>
 </template>

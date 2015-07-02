@@ -8,7 +8,7 @@ Router.configure({
 //will display all the question (log in not required)
 Router.route('/', {
 
-  name: 'show.questions',
+  name: 'questions.show',
   template: 'questions',
 
   subscriptions: function(){
@@ -56,6 +56,10 @@ Router.route('/user/:_id', {
   name: 'user.show',
   path: '/user/:_id',
 
+  subscriptions: function(){
+    return Meteor.subscribe('userInfo', this.params._id);
+  },
+
   //context data containing user public info
   data: function(){
     var data = Meteor.users.findOne({_id: this.params._id});
@@ -64,13 +68,17 @@ Router.route('/user/:_id', {
   },
 
   action: function(){
-    this.render('user');
+    if (this.ready()) {
+      this.render('user');
+    } else {
+      this.render('loading');
+    }
   }
 });
 
 //route for ask question page
 Router.route('/ask', {
-  name: 'ask.question',
+  name: 'question.ask',
   path: '/ask',
   template: 'question_form'
 });
@@ -78,7 +86,7 @@ Router.route('/ask', {
 //setting up route for a question resource
 //for paths like domain.com/question/123ashdaj
 Router.route('/question/:_questionId', {
-  name: 'show.question',
+  name: 'question.show',
   path: '/question/:_questionId',
   template: 'question',
   subscriptions: function(){
