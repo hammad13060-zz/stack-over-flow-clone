@@ -90,7 +90,11 @@ Router.route('/question/:_questionId', {
   path: '/question/:_questionId',
   template: 'question',
   subscriptions: function(){
-    return Meteor.subscribe('question', this.params._questionId);
+    var questionId = this.params._questionId
+    return [
+               Meteor.subscribe('question', questionId),
+               Meteor.subscribe('question_specific_answers', questionId)
+               ];
   },
   data: function(){
     return Questions.findOne({_id: this.params._questionId});

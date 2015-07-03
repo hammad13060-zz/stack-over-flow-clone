@@ -11,3 +11,5 @@ aldeed:collection2
 useraccounts:bootstrap
 accounts-password
 mrt:moment
+jamiter:pluralize
+insecure

@@ -1,4 +1,36 @@
 <template name='question'>
-  <h1>{{title}}</h1>
-  <p>{{question}}</p>
+  <div class='bucket question'>
+    <h3>{{title}}</h3>
+
+      <div class='row question-area'>
+        <div class='col-md-9'>
+          <p>{{question}}</p>
+        </div>
+        <div class='col-md-3'>
+          <div>
+            <span>asked</span>
+            <span>{{timePassed createdAt}}</span>
+          </div>
+          <div>
+            <span>views</span>
+            <span>4</span>
+          </div>
+        </div>
+      </div>
+
+      <div class='row author-area'>
+        <div class='col-md-4 col-md-offset-5'>
+          <div>
+            asked {{timePassed createdAt}}
+          </div>
+          <div>
+            {{#linkTo route='user.show' data=userIdData}}
+              {{username}}
+            {{/linkTo}}
+          </div>
+        </div>
+        </div>
+      </div>
+  {{> question_answers}}
+  {{> post_answer}}
 </template>

@@ -1,9 +1,15 @@
-.container{
-  margin-top: 70px;
+.ask-question-container {
+  margin-top: 170px;
+}
+
+.post-answer,
+.bucket,
+.question-answers {
+  width: 1024px;
+  margin: auto auto;
 }
 
 .bucket {
-  width: 960px;
   margin: 90px auto;
 }
 
@@ -61,4 +67,44 @@ header nav {
 .question-title a:hover{
   color: #000;
   text-decoration: none;
+}
+
+.question h3 {
+  text-align: left;
+  padding-bottom: 17px;
+}
+
+.question,
+.question h3 {
+  border-bottom: 1px solid #CFCFCF;
+}
+
+/*test*/
+
+.question-answer {
+  margin-top: 15px;
+}
+
+/*************/
+
+.question p,
+.question-answer p {
+  font-size: 17px;
+  text-align: left;
+}
+
+.question .row:first-child,
+.question-answers {
+  margin-top: 25px;
+}
+
+.author-area .col-md-offset-5 {
+  /*padding-right: 0px;*/
+  margin-top: 70px;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.answer-border {
+  border-bottom:  1px solid #CFCFCF
 }
