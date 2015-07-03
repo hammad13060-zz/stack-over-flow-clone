@@ -1,0 +1,15 @@
+<template name='questions_title'>
+  <div class='question-title'>
+    <p>
+    {{#linkTo route="question.show" data=questionIdData}}
+      {{title}}
+    {{/linkTo}}
+    </p>
+    <span>
+      asked {{timePassed createdAt}}
+      {{#linkTo route="user.show" data=userIdData}}
+        {{username}}
+      {{/linkTo}}
+    </span>
+  </div>
+</template>

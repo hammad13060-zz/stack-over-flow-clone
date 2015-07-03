@@ -1,0 +1,27 @@
+<template name='question_answer'>
+  <div class='question-answer'>
+        <div class='row answer-area'>
+        <div class='col-md-9'>
+          <p>{{answer}}</p>
+        </div>
+      </div>
+
+      <div class='row author-area'>
+        <div class='col-md-4 col-md-offset-5'>
+          <div>
+            Answered {{timePassed createdAt}}
+          </div>
+          <div>
+            {{#linkTo route='user.show' data=userIdData}}
+              {{username}}
+            {{/linkTo}}
+          </div>
+        </div>
+        </div>
+
+        <div class='row'>
+          <div class='col-md-9 answer-border'>
+          </div>
+        </div>
+        </div>
+</template>
