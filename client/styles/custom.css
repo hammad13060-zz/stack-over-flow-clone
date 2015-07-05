@@ -108,3 +108,12 @@ header nav {
 .answer-border {
   border-bottom:  1px solid #CFCFCF
 }
+
+#answer-section-logo .col-md-9 {
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+
+#answer-section-logo {
+  margin-bottom: 30px;
+}

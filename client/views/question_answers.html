@@ -1,5 +1,13 @@
 <template name='question_answers'>
   <div class='question-answers'>
+    <div id='answer-section-logo'>
+      <ul class="nav nav-tabs">
+        <li role='presentation' class='col-md-9'><h4>{{make_plural "Answer" 4}}</h4></li>
+        <li role="presentation" class="{{makeActive 'active'}}"><a href="#" data-sort_type='active'>active</a></li>
+        <li role="presentation" class='{{makeActive "oldest"}}'><a href="#" data-sort_type='oldest'>oldest</a></li>
+        <li role="presentation" class='{{makeActive "votes"}}'><a href="#" data-sort_type='votes'>votes</a></li>
+      </ul>
+    </div>
     {{#each answers _id}}
       {{> question_answer}}
     {{/each}}
