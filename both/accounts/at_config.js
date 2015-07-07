@@ -48,6 +48,9 @@ AccountsTemplates.configure({
           forgotPwd: "Recover Your Password"
       },
     },
+
+    //default internal state
+    defaultState: 'none'
 });
 
 var pwd = AccountsTemplates.removeField('password');

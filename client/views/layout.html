@@ -1,12 +1,19 @@
 <template name='layout'>
     <header class='navbar navbar-default navbar-fixed-top'>
         <h1 id='logo'>Stackoverflow</h1>
-        <nav class='navbar navbar-right'>
           <ul class="nav nav-pills">
-            <li class="{{activeTab 'signUp'}}"><a href="/register">sign up</a></li>
-            <li class="{{activeTab 'signIn'}}"><a href='/login'>log in</a></li>
+            {{#if logged_in}}
+                <li class="{{activeTab 'signUp'}}">
+                    {{#linkTo route='user.show' data=currentUserId}}
+                        user profile
+                    {{/linkTo}}
+                </li>
+                <li><a href="#" class='logout-button'>logout</a></li>
+            {{else}}
+                <li class="{{activeTab 'signUp'}}"><a href="/register">sign up</a></li>
+                <li class="{{activeTab 'signIn'}}"><a href='/login'>log in</a></li>
+            {{/if}}
           </ul>
-        </nav>
     </header>
     {{> yield}}
 </template>
