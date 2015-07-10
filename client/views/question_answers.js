@@ -9,7 +9,7 @@ Template.question_answers.helpers({
     var sort_methods = {
       'active': {createdAt: -1},
       'oldest': {createdAt: 1},
-      'votes': {createdAt: -1} //not final implementation
+      'votes': {votes: 1} //not final implementation
     }
 
     var sort_method = {sort: sort_methods[Session.get('sort_state')]}
@@ -20,6 +20,10 @@ Template.question_answers.helpers({
 
   makeActive: function(expectedState){
     return (Session.get('sort_state') === expectedState ? 'active' : '');
+  },
+
+  answerCount: function(){
+    return Answers.find({questionId: this._id}).count();
   }
 });
 

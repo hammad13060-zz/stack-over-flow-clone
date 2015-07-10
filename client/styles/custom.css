@@ -125,3 +125,8 @@ header ul {
 #answer-section-logo {
   margin-bottom: 30px;
 }
+
+.upvote-area .upvote-count {
+  margin-left: 1px;
+  font-size: 17px;
+}

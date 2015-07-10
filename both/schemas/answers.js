@@ -1,3 +1,12 @@
+var voteSchema = new SimpleSchema({
+  userId: {
+    type: String
+  },
+  value: {
+    type: Number
+  }
+});
+
 Answers.attachSchema(new SimpleSchema({
 
   //answer for a question
@@ -16,6 +25,15 @@ Answers.attachSchema(new SimpleSchema({
 
   username: {
     type: String
+  },
+
+  votes: {
+    type: Number
+  },
+
+  votedBy: {
+    type: [voteSchema],
+    optional: true
   },
 
   // Force value to be current date (on server) upon insert
